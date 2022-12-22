@@ -1,0 +1,8 @@
+{
+  "type": "module",
+  "dependencies": {
+    "discord.js": "^14.7.1",
+    "fs": "^0.0.1-security",
+    "rss-parser": "^3.12.0"
+  }
+}
