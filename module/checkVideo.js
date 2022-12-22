@@ -15,16 +15,18 @@ export const checkVideo = async(client, yotubeId) => {
 
   if (!existsSync(filePath)) {
     writeFileSync(filePath, JSON.stringify({
-      id: '' 
+      id: [] 
     }));
   }
   
   const rawData = readFileSync(filePath).toString();
   const jsonData = JSON.parse(rawData);
 
-  if (jsonData.id !== data.items[0].id) {
+  const videoId = data.items[0].id;
+  if (!jsonData.id.includes(videoId)) {
+    jsonData.id.push(videoId);
     writeFileSync(filePath, JSON.stringify({
-      id: data.items[0].id
+      id: jsonData.id
     }));
 
     const guild = await client.guilds

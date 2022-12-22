@@ -11,7 +11,7 @@ const token = 'MTA1NDY1Njg3MzE1ODE1MjIxMw.Ggqgnw.iLG29_pG02K4AE7jpnpBpIzaXZ3XHKL
 const applicationId = '1054656873158152213';
 const restVersion = '10';
 
-const checkInterval = 15_000; // 15 seconds
+const checkInterval = 60_000; // 1 minute
 
 const rest = new REST({ 
   version: restVersion 
