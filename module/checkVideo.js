@@ -7,7 +7,7 @@ const root = dirname(fileURLToPath(import.meta.url));
 const parser = new Parser();
 
 const guildId = '1047612274673729596'
-const channelId = '1054674392203935754';
+const channelId = '1047967192697806878';
 
 export const checkVideo = async(client, yotubeId) => {
   const data = await parser.parseURL(`https://youtube.com/feeds/videos.xml?channel_id=${yotubeId}`).catch(console.error);
