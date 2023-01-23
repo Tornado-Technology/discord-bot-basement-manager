@@ -1,4 +1,5 @@
 import { PermissionsBitField, SlashCommandBuilder } from 'discord.js';
+import { PermissionFlagsBits } from 'discord-api-types/v10';
 
 export default {
   data: new SlashCommandBuilder()
@@ -15,7 +16,7 @@ export default {
       option.setName('message')
         .setDescription('Message ID')
         .setRequired(true))
-    .setDefaultMemberPermissions(PermissionsBitField.Flags.MessageDelete)
+    .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages)
     .setDMPermission(true),
   async execute(interaction) {
     const channel = interaction.options.getChannel('channel');

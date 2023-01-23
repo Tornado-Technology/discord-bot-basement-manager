@@ -1,4 +1,5 @@
 import { PermissionsBitField, ChannelType, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
+import { PermissionFlagsBits } from 'discord-api-types/v10';
 
 export default {
   data: new SlashCommandBuilder()
@@ -10,8 +11,7 @@ export default {
     .setDescriptionLocalizations({
       ru: 'Перезагружает бота',
     })
-    .setDefaultMemberPermissions(PermissionsBitField.Flags.Webhook)
-    .setDMPermission(true),
+    .setDefaultMemberPermissions(PermissionFlagsBits.ManageWebhooks),
   async execute(interaction) {
     await interaction.reply({
       content: 'Rebooting...',

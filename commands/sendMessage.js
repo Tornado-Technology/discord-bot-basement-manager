@@ -1,4 +1,5 @@
 import { PermissionsBitField, ChannelType, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
+import { PermissionFlagsBits } from 'discord-api-types/v10';
 
 export default {
   data: new SlashCommandBuilder()
@@ -45,7 +46,7 @@ export default {
         option.setName('embed')
           .setDescription('Using embed?')
           .setRequired(true))
-    .setDefaultMemberPermissions(PermissionsBitField.Flags.ChannelUpdate)
+    .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages)
     .setDMPermission(true),
   async execute(interaction) {
     const channel = interaction.options.getChannel('channel');
