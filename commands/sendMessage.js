@@ -10,14 +10,14 @@ export default {
     .setDescriptionLocalizations({
       ru: 'Отправляет сообщение от имени бота',
     })
-    .addStringOption((option) =>
-      option.setName('title')
-        .setDescription('Message title')
+    .addChannelOption((option) =>
+      option.setName('channel')
+        .setDescription('Message channel')
         .setNameLocalizations({
-          ru: 'заголовок',
+          ru: 'канал',
         })
         .setDescriptionLocalizations({
-          ru: 'Текст заоголвка',
+          ru: 'Канал для сообщения',
         })
         .setRequired(true))
     .addStringOption((option) =>
@@ -29,7 +29,8 @@ export default {
         .setDescriptionLocalizations({
           ru: 'Текст сообщения',
         })
-        .setRequired(true))
+        .setRequired(true)
+        .setMaxLength(2000))
     .addNumberOption((option) =>
       option.setName('color')
         .setDescription('The color of the message being sent')
@@ -40,19 +41,33 @@ export default {
           ru: 'Цвет отправляемого сообщения',
         })
         .setRequired(true))
+    .addBooleanOption((option) =>
+        option.setName('embed')
+          .setDescription('Using embed?')
+          .setRequired(true))
     .setDefaultMemberPermissions(PermissionsBitField.Flags.ChannelUpdate)
     .setDMPermission(true),
   async execute(interaction) {
-    const title = interaction.options.getString('title');
+    const channel = interaction.options.getChannel('channel');
     const text = interaction.options.getString('text');
-    const color = interaction.options.getNumber('color')
+    const color = interaction.options.getNumber('color');
+    const embed = interaction.options.getBoolean('embed')
+
+    if (embed) {
+      await channel.send({
+        embeds: [new EmbedBuilder()
+          .setDescription(text)
+          .setColor(color)
+        ]});
+    } else {
+      await channel.send({
+        content: text,
+      });
+    }
 
     await interaction.reply({
-      embeds: new EmbedBuilder()
-        .setTitle(title)
-        .setDescription(text)
-        .setColor(color)
+      content: 'Сообщение доставленно!',
+      ephemeral: true,
     });
-    await interaction.delete();
   },
 }
