@@ -1,5 +1,4 @@
 import { PermissionsBitField, ChannelType, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
-import sendMessage from "./sendMessage.js";
 
 export default {
   data: new SlashCommandBuilder()
@@ -31,11 +30,27 @@ export default {
           ru: 'ID сообщения',
         })
         .setRequired(true))
+    .addBooleanOption((option) =>
+      option.setName('embed')
+        .setDescription('Using embed?')
+        .setRequired(false))
+    .addNumberOption((option) =>
+      option.setName('color')
+        .setDescription('The color of the message being sent')
+        .setNameLocalizations({
+          ru: 'цвет',
+        })
+        .setDescriptionLocalizations({
+          ru: 'Цвет отправляемого сообщения',
+        })
+        .setRequired(false))
     .setDefaultMemberPermissions(PermissionsBitField.Flags.ChannelUpdate)
     .setDMPermission(true),
   async execute(interaction) {
     const channel = interaction.options.getChannel('channel');
     const messageID = interaction.options.getString('message');
+    const embed = interaction.options.getBoolean('embed') ?? false;
+    const color = interaction.options.getNumber('color') ?? 0x00ceff;
 
     const message = await channel.messages.fetch(messageID);
     const { content } = message;
@@ -47,6 +62,14 @@ export default {
     }
 
     for (const sendMessage of contents) {
+      if (embed) {
+        await channel.send({embeds: [
+          new EmbedBuilder()
+            .setColor(color)
+            .setDescription(sendMessage)
+        ]});
+        continue;
+      }
       await channel.send(sendMessage);
     }
 
