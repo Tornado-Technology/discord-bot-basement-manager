@@ -8,7 +8,7 @@ import {loadReactionMessages, saveReactionMessages} from "./module/saveReactionM
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const token = 'MTA1NDY1Njg3MzE1ODE1MjIxMw.Ggqgnw.iLG29_pG02K4AE7jpnpBpIzaXZ3XHKLlinD7-U';
+const token = 'MTA1NDY1Njg3MzE1ODE1MjIxMw.G0g0Sn.p26o4ewnJMFPuOu5yF0WbgDePvAkf94g0_6xkc';
 const applicationId = '1054656873158152213';
 const restVersion = '10';
 
@@ -68,8 +68,8 @@ client.once(Events.ClientReady, async () => {
   }, 10000);
 
   setInterval(() => {
-    checkVideo(client, 'UCV078E1mCeRS4blwnIlsK-w');
-    checkVideo(client, 'UCaUxByGzCt3E_6znmAYex6w');
+    //checkVideo(client, 'UCV078E1mCeRS4blwnIlsK-w');
+    //checkVideo(client, 'UCaUxByGzCt3E_6znmAYex6w');
   }, checkInterval);
 });
 

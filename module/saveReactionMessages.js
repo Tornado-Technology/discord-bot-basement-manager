@@ -14,7 +14,9 @@ export const saveReactionMessages = () => {
     }));
   }
 
-  writeFileSync(filePath, JSON.stringify(reactionMessages));
+  writeFileSync(filePath, JSON.stringify({
+    reactionMessages,
+  }));
 }
 
 export const loadReactionMessages = () => {
@@ -24,7 +26,7 @@ export const loadReactionMessages = () => {
     }));
   }
 
-  const data = JSON.parse(readFileSync(filePath).toString());
+  const data = JSON.parse(readFileSync(filePath).toString())?.reactionsMessages ?? [];
   data.forEach((reactionMessage) => {
     reactionMessages.push(new ReactionMessage(reactionMessage.serverId, reactionMessage.channelId, reactionMessage.messageId, reactionMessage.reaction, reactionMessage.roleId));
   });
