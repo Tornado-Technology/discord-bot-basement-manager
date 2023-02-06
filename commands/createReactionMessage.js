@@ -3,6 +3,8 @@ import { PermissionFlagsBits } from 'discord-api-types/v10';
 import { reactionMessages } from '../index.js';
 import { ReactionMessage } from '../reactionMessage.js';
 
+const regex = /:(.*?):/g;
+
 export default {
   data: new SlashCommandBuilder()
     .setName('reactionmessage')
@@ -21,9 +23,23 @@ export default {
   async execute(interaction) {
     const channel = interaction.channel;
     const message = await channel.messages.fetch(interaction.options.getString('message'));
-    const reaction = interaction.options.getString('reaction');
     const role = interaction.options.getRole('role');
+    const reactionString = interaction.options.getString('reaction');
+    const match = reactionString.match(regex);
+    console.log(reactionString)
+
+    let reaction;
+    if (match) {
+      reaction = match[0];
+      reaction = reaction.replaceAll(':', '');
+    } else {
+      reaction = reactionString;
+      console.log(reactionString)
+    }
+
+    console.log(reaction)
+
     reactionMessages.push(new ReactionMessage(interaction.guild.id, interaction.channel.id, message.id, reaction, role.id));
-    await message.react(reaction);
+    await message.react(reactionString);
   },
 }

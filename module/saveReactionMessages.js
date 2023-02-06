@@ -26,7 +26,7 @@ export const loadReactionMessages = () => {
     }), 'utf-8');
   }
 
-  const data = JSON.parse(readFileSync(filePath).toString())?.reactionsMessages ?? [];
+  const data = JSON.parse(readFileSync(filePath).toString())?.reactionMessages ?? [];
   data.forEach((reactionMessage) => {
     reactionMessages.push(new ReactionMessage(reactionMessage.serverId, reactionMessage.channelId, reactionMessage.messageId, reactionMessage.reaction, reactionMessage.roleId));
   });

@@ -14,6 +14,7 @@ const restVersion = '10';
 
 const checkInterval = 60_000; // 1 minute
 export const reactionMessages = [];
+loadReactionMessages();
 
 const rest = new REST({ 
   version: restVersion 
@@ -61,7 +62,6 @@ client.once(Events.ClientReady, async () => {
       console.error(error);
     }
   })();
-  loadReactionMessages();
 
   setInterval(() => {
     saveReactionMessages();
@@ -113,7 +113,7 @@ client.on(Events.MessageReactionAdd, async (reaction, user) => {
     return message.serverId === reaction.message.guildId &&
       message.channelId === reaction.message.channelId &&
       message.messageId === reaction.message.id &&
-      message.reaction === `<:${reaction.emoji.name}:${reaction.emoji.id}>`
+      message.reaction === reaction.emoji.name
   });
 
   if (reactionMessage) {
@@ -141,7 +141,7 @@ client.on(Events.MessageReactionRemove, async (reaction, user) => {
     return message.serverId === reaction.message.guildId &&
       message.channelId === reaction.message.channelId &&
       message.messageId === reaction.message.id &&
-      message.reaction === `<:${reaction.emoji.name}:${reaction.emoji.id}>`
+      message.reaction === reaction.emoji.name
   });
 
   if (reactionMessage) {
