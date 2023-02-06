@@ -68,8 +68,8 @@ client.once(Events.ClientReady, async () => {
   }, 10000);
 
   setInterval(() => {
-    //checkVideo(client, 'UCV078E1mCeRS4blwnIlsK-w');
-    //checkVideo(client, 'UCaUxByGzCt3E_6znmAYex6w');
+    checkVideo(client, 'UCV078E1mCeRS4blwnIlsK-w');
+    checkVideo(client, 'UCaUxByGzCt3E_6znmAYex6w');
   }, checkInterval);
 });
 
