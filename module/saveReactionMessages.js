@@ -11,19 +11,19 @@ export const saveReactionMessages = () => {
   if (!existsSync(filePath)) {
     writeFileSync(filePath, JSON.stringify({
       reactionsMessages: []
-    }));
+    }), 'utf-8');
   }
 
   writeFileSync(filePath, JSON.stringify({
     reactionMessages,
-  }));
+  }), 'utf-8');
 }
 
 export const loadReactionMessages = () => {
   if (!existsSync(filePath)) {
     writeFileSync(filePath, JSON.stringify({
       reactionsMessages: []
-    }));
+    }), 'utf-8');
   }
 
   const data = JSON.parse(readFileSync(filePath).toString())?.reactionsMessages ?? [];
