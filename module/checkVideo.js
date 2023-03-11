@@ -13,6 +13,10 @@ export const checkVideo = async(client, yotubeId) => {
   const data = await parser.parseURL(`https://youtube.com/feeds/videos.xml?channel_id=${yotubeId}`).catch(console.error);
   const filePath = `${root}/../data/video_${yotubeId}.json`;
 
+  if (!data || data?.items?.length === 0) {
+    return;
+  }
+
   if (!existsSync(filePath)) {
     writeFileSync(filePath, JSON.stringify({
       id: [] 
