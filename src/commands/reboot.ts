@@ -1,8 +1,7 @@
-import { PermissionsBitField, ChannelType, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
-import { PermissionFlagsBits } from 'discord-api-types/v10';
+import { CommandInteraction, PermissionFlagsBits, SlashCommandBuilder } from 'discord.js';
 
 export default {
-  data: new SlashCommandBuilder()
+  command: new SlashCommandBuilder()
     .setName('reboot')
     .setNameLocalizations({
       ru: 'перезагрузить',
@@ -12,12 +11,11 @@ export default {
       ru: 'Перезагружает бота',
     })
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageWebhooks),
-  async execute(interaction) {
+  async execute(interaction: CommandInteraction) {
     await interaction.reply({
       content: 'Rebooting...',
       ephemeral: true,
     });
-
     throw new Error('Reboot!');
   },
-}
+};

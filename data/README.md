@@ -1,1 +1,0 @@
-Here will be stored server information, a simplified version of the database, so that without the hassle of the initial stage
