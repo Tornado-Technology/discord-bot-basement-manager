@@ -18,6 +18,13 @@ declare module 'discord.js' {
     commands: Collection<string, SlashCommand>,
     cooldowns: Collection<string, number>,
   }
+
+  export interface CommandInteraction {
+    // @ts-ignore
+    options: {
+      getString(key: string): string
+    }
+  }
 }
 
 export interface ClientEvent {
