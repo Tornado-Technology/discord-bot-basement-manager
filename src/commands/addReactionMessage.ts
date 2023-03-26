@@ -22,6 +22,8 @@ export default {
     .addStringOption((option) =>
       option
         .setName('reaction')
+        .setMinLength(1)
+        .setMaxLength(1)
         .setDescription('Reaction.')
         .setRequired(true)
     )

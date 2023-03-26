@@ -18,7 +18,7 @@ export default {
       option
         .setName('color')
         .setDescription('The color of the message being sent')
-        .setRequired(true))
+        .setRequired(false))
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages),
   async execute(interaction: CommandInteraction) {
     // @ts-ignore
@@ -27,7 +27,6 @@ export default {
     const messageId = interaction.options.getString('message');
     // @ts-ignore
     const color = interaction.options.getNumber('color');
-
 
     const message = await channel.messages.fetch(messageId);
     const { content } = message;
@@ -39,11 +38,15 @@ export default {
     }
 
     for (const sendMessage of contents) {
-      await channel.send({embeds: [
-        new EmbedBuilder()
-          .setColor(color)
-          .setDescription(sendMessage)
-        ]});
+      if (color) {
+        await channel.send({embeds: [
+            new EmbedBuilder()
+              .setColor(color)
+              .setDescription(sendMessage)
+          ]});
+      } else {
+        channel.send(sendMessage);
+      }
     }
 
     await interaction.reply({
