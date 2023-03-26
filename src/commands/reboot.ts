@@ -3,13 +3,7 @@ import { CommandInteraction, PermissionFlagsBits, SlashCommandBuilder } from 'di
 export default {
   command: new SlashCommandBuilder()
     .setName('reboot')
-    .setNameLocalizations({
-      ru: 'перезагрузить',
-    })
     .setDescription('Rebooting bot')
-    .setDescriptionLocalizations({
-      ru: 'Перезагружает бота',
-    })
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageWebhooks),
   async execute(interaction: CommandInteraction) {
     await interaction.reply({
