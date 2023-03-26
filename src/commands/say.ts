@@ -6,13 +6,21 @@ export default {
     .setDescription('Say.')
     .addStringOption((option) =>
       option
-        .setName('message')
+        .setName('text')
+        .setDescription('Text.')
         .setRequired(true)
     )
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages),
   async execute(interaction: CommandInteraction) {
     // @ts-ignore
-    const text = interaction.options.getString('message');
-    interaction.channel?.send(text);
+    const text = interaction.options.getString('text');
+    await interaction.channel?.send(text);
+    await interaction.reply({
+      content: 'Message send!',
+      ephemeral: true,
+    });
+    setTimeout(() => {
+      interaction.deleteReply()
+    }, 5000);
   },
 };
