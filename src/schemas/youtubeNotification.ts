@@ -5,7 +5,7 @@ export interface IYoutubeNotification extends mongoose.Document {
   channelId: string,
   youtubeId: string,
   message: string,
-  lastVideo: string,
+  lastVideos: string[],
 }
 
 const YoutubeNotificationSchema = new Schema<IYoutubeNotification>({
@@ -13,7 +13,7 @@ const YoutubeNotificationSchema = new Schema<IYoutubeNotification>({
   channelId: { type: String, required: true, },
   youtubeId: { type: String, required: true, },
   message: { type: String, default: 'На канале **%author** вышел новый ролик **%title**: *%link*', },
-  lastVideo: { type: String, default: null, },
+  lastVideos: [{ type: String, default: '', }],
 }, {
   collection: 'youtubeNotifications',
 });

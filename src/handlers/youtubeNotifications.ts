@@ -22,11 +22,11 @@ const checkVideo = (client: Client, notification: IYoutubeNotification) => {
       const videos: IVideoInfo[] = data.items;
       const videoId = videos[0].id;
 
-      if (notification.lastVideo === videoId) {
+      if (notification.lastVideos.includes(videoId)) {
         return;
       }
 
-      notification.lastVideo = videoId;
+      notification.lastVideos.push(videoId);
       notification.save().then(() => {
         client.guilds.fetch(notification.guildId).then((guild) => {
           guild.channels.fetch(notification.channelId).then((channel) => {
