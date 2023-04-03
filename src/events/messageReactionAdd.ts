@@ -26,8 +26,8 @@ export default {
       reaction: reaction.emoji.name,
     });
 
+    const member = await reaction.message.guild?.members.cache.get(user.id);
     if (reactionMessage) {
-      const member = await reaction.message.guild?.members.cache.get(user.id);
       const role = await member?.guild.roles.fetch(reactionMessage.roleId);
       if (role) {
         await member?.roles.add(role);
@@ -35,7 +35,7 @@ export default {
       return;
     }
 
-    if (reaction.emoji.name === '🍍') {
+    if (reaction.emoji.name === '🍍' && !member?.roles.cache.get('1088349504094359572')  && !member?.roles.cache.get('1048590352845635595')) {
       await reaction.remove();
     }
   }
