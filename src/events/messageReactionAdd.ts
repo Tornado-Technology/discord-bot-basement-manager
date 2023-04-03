@@ -18,7 +18,7 @@ export default {
       }
     }
 
-    const { guildId, channelId } = reaction.message
+    const { guildId, channelId } = reaction.message;
     const reactionMessage = await ReactionMessageModel.findOne({
       guildId,
       channelId,
@@ -32,6 +32,11 @@ export default {
       if (role) {
         await member?.roles.add(role);
       }
+      return;
+    }
+
+    if (reaction.emoji.name === '🍍') {
+      await reaction.remove();
     }
   }
 };
