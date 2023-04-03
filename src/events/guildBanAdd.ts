@@ -2,9 +2,14 @@ import { GuildBan, PermissionsBitField, AuditLogEvent } from 'discord.js';
 import { UserBanModel } from '../schemas/userBan.js';
 import client from "../index";
 
+const delay = (ms: number): Promise<void> => {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
+
 export default {
   name: 'guildBanAdd',
   async execute (ban: GuildBan) {
+    await delay(5000);
     const { guild } = ban;
     const fetchedLogs = await guild.fetchAuditLogs({
       type: AuditLogEvent.MemberBanAdd,
@@ -30,10 +35,6 @@ export default {
       moderatorId: executor.id,
     });
 
-    if (banned.length < 6) {
-      return;
-    }
-
     const start = new Date();
     start.setHours(0, 0, 0, 0);
 
@@ -44,7 +45,7 @@ export default {
       banInfo.date >= start && banInfo.date <= end
     ));
 
-    if (filtered.length >= 1) {
+    if (filtered.length >= 5) {
       const member = await guild.members.fetch(executor.id);
       if (!member) {
         console.error('Member not found!');
