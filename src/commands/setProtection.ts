@@ -12,21 +12,19 @@ export default {
         .setRequired(true)
     ),
   async execute(interaction: CommandInteraction) {
+    console.log(interaction.user.id);
     if (interaction.user.id !== '967601899547295764' && interaction.user.id !== '344083304959705088') {
       await interaction.reply({
         content: 'You haven\'t permission for this action!',
         ephemeral: true,
       });
-    } else {
-      // @ts-ignore
-      client.protection = interaction.options.getString('state');
-      await interaction.reply({
-        content: `Server protection state set to ${client.protection ? 'enable' : 'disable'}`,
-        ephemeral: true,
-      });
+      return;
     }
-    setTimeout(() => {
-      interaction.deleteReply()
-    }, 5000);
+    // @ts-ignore
+    client.protection = interaction.options.getBoolean('state');
+    await interaction.reply({
+      content: `Server protection state set to ${client.protection ? 'enable' : 'disable'}`,
+      ephemeral: true,
+    });
   },
 };
