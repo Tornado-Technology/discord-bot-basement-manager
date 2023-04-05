@@ -1,9 +1,13 @@
 import { Sticker } from 'discord.js';
+import client from '../index.js';
 
 export default {
   name: 'stickerDelete',
   async execute (sticker: Sticker) {
-    console.dir(sticker);
+    if (!client.protection) {
+      return;
+    }
+
     await sticker.guild?.stickers.create({
       file: sticker.url,
       name: sticker.name,

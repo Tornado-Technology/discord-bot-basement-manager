@@ -29,6 +29,7 @@ const client = new Client({
   ],
 });
 
+client.protection = true;
 client.commands = new Collection<string, SlashCommand>();
 client.cooldowns = new Collection<string, number>();
 

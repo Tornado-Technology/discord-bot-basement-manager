@@ -17,6 +17,7 @@ declare module 'discord.js' {
   export interface Client {
     commands: Collection<string, SlashCommand>,
     cooldowns: Collection<string, number>,
+    protection: boolean,
   }
 
   export interface CommandInteraction {
