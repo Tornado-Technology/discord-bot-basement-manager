@@ -1,4 +1,4 @@
-import {ChannelType, CommandInteraction, EmbedBuilder, PermissionFlagsBits, SlashCommandBuilder} from 'discord.js';
+import { ChannelType, CommandInteraction, EmbedBuilder, PermissionFlagsBits, SlashCommandBuilder } from 'discord.js';
 
 export default {
   command: new SlashCommandBuilder()

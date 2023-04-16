@@ -1,5 +1,5 @@
-import {CommandInteraction, PermissionFlagsBits, SlashCommandBuilder} from 'discord.js';
-import client from '../index';
+import { CommandInteraction, PermissionFlagsBits, SlashCommandBuilder } from 'discord.js';
+import client from '../index.js';
 
 export default {
   command: new SlashCommandBuilder()

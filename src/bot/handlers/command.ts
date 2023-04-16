@@ -2,7 +2,7 @@ import { Client, REST, Routes, SlashCommandBuilder } from 'discord.js';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 import { readdirSync } from 'fs';
-import { SlashCommand } from '../types';
+import { SlashCommand } from '../types.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);

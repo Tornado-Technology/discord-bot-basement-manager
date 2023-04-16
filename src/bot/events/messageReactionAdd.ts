@@ -1,6 +1,6 @@
 import { MessageReaction, User } from 'discord.js';
-import { ReactionMessageModel } from '../schemas/reactionMessage';
-import client from '../index';
+import { ReactionMessageModel } from '../schemas/reactionMessage.js';
+import client from '../index.js';
 
 export default {
   name: 'messageReactionAdd',

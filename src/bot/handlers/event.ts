@@ -2,7 +2,7 @@ import { Client } from 'discord.js';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 import { readdirSync } from 'fs';
-import { ClientEvent } from '../types';
+import { ClientEvent } from '../types.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);

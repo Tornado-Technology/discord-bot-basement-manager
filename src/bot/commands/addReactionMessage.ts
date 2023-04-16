@@ -1,5 +1,5 @@
 import { ChannelType, CommandInteraction, PermissionFlagsBits, SlashCommandBuilder } from 'discord.js';
-import { ReactionMessageModel } from '../schemas/reactionMessage';
+import { ReactionMessageModel } from '../schemas/reactionMessage.js';
 
 const regex = /:(.*?):/g;
 

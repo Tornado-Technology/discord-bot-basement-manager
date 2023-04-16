@@ -1,4 +1,4 @@
-import mongoose, {model, Schema} from 'mongoose';
+import mongoose, { model, Schema } from 'mongoose';
 
 export interface IReactionMessage extends mongoose.Document {
   guildId: string,

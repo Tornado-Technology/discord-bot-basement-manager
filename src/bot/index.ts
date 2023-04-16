@@ -4,7 +4,7 @@ import { readdirSync } from 'fs';
 import { dirname } from 'path';
 import { config } from 'dotenv';
 import { join } from 'path';
-import { SlashCommand } from './types';
+import { SlashCommand } from './types.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);

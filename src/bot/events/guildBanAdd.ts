@@ -1,6 +1,5 @@
 import { GuildBan, PermissionsBitField, AuditLogEvent } from 'discord.js';
-import { UserBanModel } from '../schemas/userBan';
-import client from "../index";
+import { UserBanModel } from '../schemas/userBan.js';
 
 const delay = (ms: number): Promise<void> => {
   return new Promise((resolve) => setTimeout(resolve, ms))
