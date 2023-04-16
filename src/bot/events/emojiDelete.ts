@@ -1,5 +1,5 @@
 import { GuildEmoji } from 'discord.js';
-import client from '../index.js';
+import client from '../index';
 
 export default {
   name: 'emojiDelete',

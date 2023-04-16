@@ -1,5 +1,5 @@
 import { ChannelType, DMChannel, GuildChannel } from 'discord.js';
-import client from '../index.js';
+import client from '../index';
 
 export default {
   name: 'channelDelete',

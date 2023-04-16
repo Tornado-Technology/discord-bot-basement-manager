@@ -1,5 +1,5 @@
 import { ChannelType, CommandInteraction, PermissionFlagsBits, SlashCommandBuilder } from 'discord.js';
-import { YoutubeNotificationModel } from '../schemas/youtubeNotification.js';
+import { YoutubeNotificationModel } from '../schemas/youtubeNotification';
 
 export default {
   command: new SlashCommandBuilder()

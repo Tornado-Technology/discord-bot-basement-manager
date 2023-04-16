@@ -1,7 +1,7 @@
 // @ts-ignore
 import Parser from 'rss-parser';
 import { Client, NewsChannel, TextChannel } from 'discord.js';
-import { IYoutubeNotification, YoutubeNotificationModel } from '../schemas/youtubeNotification.js';
+import { IYoutubeNotification, YoutubeNotificationModel } from '../schemas/youtubeNotification';
 
 const parser = new Parser();
 interface IVideoInfo {
