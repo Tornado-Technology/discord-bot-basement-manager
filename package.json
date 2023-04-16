@@ -2,7 +2,7 @@
   "name": "discord-basement-manager-v2",
   "version": "1.0.0",
   "scripts": {
-    "start": "node build/index.js"
+    "start": "node build/bot/index.js"
   },
   "author": "TornadoTech",
   "license": "MIT",
