@@ -35,7 +35,7 @@ export default {
       return;
     }
 
-    if (reaction.emoji.name === '🍍' && !member?.roles.cache.get('1088349504094359572')  && !member?.roles.cache.get('1048590352845635595') && member?.id !== '828574119439368222' && member?.id !== '260814562276671498') {
+    if (reaction.emoji.name === '🍍' && !member?.roles.cache.get('1088349504094359572')  && !member?.roles.cache.get('1048590352845635595') && member?.user?.id !== '828574119439368222' && member?.user?.id !== '260814562276671498') {
       await reaction.remove();
     }
   }
