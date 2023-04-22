@@ -2,7 +2,7 @@
   "name": "discord-basement-manager-v2",
   "version": "1.0.0",
   "scripts": {
-    "start": "node build/bot/index.js"
+    "start": "npx tsc && node build/bot/index.js"
   },
   "author": "TornadoTech",
   "license": "MIT",
@@ -10,6 +10,7 @@
   "dependencies": {
     "@discordjs/rest": "^1.1.0",
     "@types/node": "^18.7.14",
+    "canvas": "^2.11.2",
     "discord.js": "^14.8.0",
     "dotenv": "^16.0.3",
     "mongoose": "7.0.2",
