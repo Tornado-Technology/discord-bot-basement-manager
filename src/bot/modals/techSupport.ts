@@ -17,6 +17,7 @@ export const createTechSupportModal = () => {
         .setPlaceholder('Опишите вопрос, жалобы, предложения.')
         .setLabel('Для чего ты создаешь билет?')
         .setStyle(TextInputStyle.Paragraph)
+        .setMaxLength(1900)
         .setRequired(true)
       ]),
     ]);
