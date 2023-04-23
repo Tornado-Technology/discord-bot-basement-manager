@@ -27,7 +27,11 @@ export default {
       case captchaId.buttonHelp:
         await interaction.reply({
           ephemeral: true,
-          content: 'Че тоо помощи',
+          content:
+            '**Если имеются вопросы — обязательно обратись к этим людям:**\n' +
+            '<@921798579692122163>\n' +
+            '<@344083304959705088>\n' +
+            '<@967601899547295764>',
         });
         break;
 
