@@ -28,6 +28,11 @@ export default {
             label: 'Путеводитель',
             value: '2',
           },
+          {
+            description: 'А что насчёт ботов? ',
+            label: 'Дискорд боты',
+            value: '3'
+          }
         ])
     ]);
 
