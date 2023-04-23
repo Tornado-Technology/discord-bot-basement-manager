@@ -10,7 +10,8 @@ export default {
         .setDescription('Text.')
         .setRequired(true)
     )
-    .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages),
+    .setDMPermission(false)
+    .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
   async execute(interaction: CommandInteraction) {
     // @ts-ignore
     const text = interaction.options.getString('text');

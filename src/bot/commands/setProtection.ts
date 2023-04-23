@@ -3,14 +3,16 @@ import client from '../index.js';
 
 export default {
   command: new SlashCommandBuilder()
-    .setName('setprotection')
+    .setName('set_protection')
     .setDescription('Set protection.')
     .addBooleanOption((option) =>
       option
         .setName('state')
         .setDescription('State.')
         .setRequired(true)
-    ),
+    )
+    .setDMPermission(false)
+    .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
   async execute(interaction: CommandInteraction) {
     if (interaction.user.id !== '967601899547295764' && interaction.user.id !== '344083304959705088') {
       await interaction.reply({

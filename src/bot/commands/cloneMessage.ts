@@ -19,7 +19,8 @@ export default {
         .setName('color')
         .setDescription('The color of the message being sent')
         .setRequired(false))
-    .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages),
+    .setDMPermission(false)
+    .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
   async execute(interaction: CommandInteraction) {
     // @ts-ignore
     const channel = interaction.options.getChannel('channel');

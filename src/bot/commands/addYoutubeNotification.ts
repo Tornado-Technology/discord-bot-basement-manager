@@ -23,7 +23,8 @@ export default {
         .setDescription('Message sending how notification.')
         .setRequired(true)
     )
-    .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages),
+    .setDMPermission(false)
+    .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
   async execute(interaction: CommandInteraction) {
     // @ts-ignore
     const youtubeId = interaction.options.getString('yotubechannelid');

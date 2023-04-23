@@ -8,8 +8,10 @@ import {
 
 export default {
   command: new SlashCommandBuilder()
-    .setName('select')
-    .setDescription('Select.'),
+    .setName('create_info_menu')
+    .setDescription('Create info menu.')
+    .setDMPermission(false)
+    .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
   execute: async function (interaction: CommandInteraction) {
     const row = new ActionRowBuilder().addComponents([
       new StringSelectMenuBuilder()

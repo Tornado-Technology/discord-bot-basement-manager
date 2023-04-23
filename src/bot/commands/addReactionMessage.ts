@@ -7,6 +7,7 @@ export default {
   command: new SlashCommandBuilder()
     .setName('addreactionmessage')
     .setDescription('Add.')
+    .setDMPermission(false)
     .addChannelOption((option) =>
       option
         .setName('channel')
@@ -33,7 +34,8 @@ export default {
         .setDescription('Role.')
         .setRequired(true)
     )
-    .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages),
+    .setDMPermission(false)
+    .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
   async execute(interaction: CommandInteraction) {
     // @ts-ignore
     const channel = interaction.options.getChannel('channel');

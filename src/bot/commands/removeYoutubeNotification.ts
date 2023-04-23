@@ -11,7 +11,8 @@ export default {
         .setName('messagecount')
         .setDescription('Message amount to be cleared')
     )
-    .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages),
+    .setDMPermission(false)
+    .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
   async execute(interaction: CommandInteraction) {
 
   },
