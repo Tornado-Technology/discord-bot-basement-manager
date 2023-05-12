@@ -44,7 +44,7 @@ export const createImage = (main: string, sub: string): AttachmentBuilder => {
 };
 
 export const createVerificationImage = (): AttachmentBuilder => {
-  return createImage('ВЕРЕФИКАЦИЯ', 'Пройдите опрос ниже');
+  return createImage('ВЕРИФИКАЦИЯ', 'Пройдите опрос ниже');
 };
 
 export const createWrongImage = (): AttachmentBuilder => {

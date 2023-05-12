@@ -69,7 +69,7 @@ export const verify = async (interaction: ButtonInteraction, successCallback: Fu
     labels.push(values[num]);
   }
 
-  const attachment = createImage(`${labels[index]}`.toUpperCase(), `Выберете смайл ниже`);
+  const attachment = createImage(`${labels[index]}`.toUpperCase(), `Выберите смайл ниже`);
   const row = new ActionRowBuilder().addComponents(createComponents(emojis, labels));
   const options = {
     ephemeral: true,
